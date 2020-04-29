@@ -21,17 +21,18 @@ export const fetchDataFailure = () => ({
   type: FETCH_DATA_FAILURE,
 })
 
-export const fetchMicroDataRequest = () => ({
-  type: FETCH_DATA_REQUEST,
+export const fetchMicroDataRequest = (country: string) => ({
+  type: FETCH_MICRO_DATA_REQUEST,
+  payload: { country },
 })
 
 export const fetchMicroDataSuccess = (payload: ICoronaDataItem[]) => ({
-  type: FETCH_DATA_SUCCESS,
+  type: FETCH_MICRO_DATA_SUCCESS,
   payload,
 })
 
 export const fetchMicroDataFailure = () => ({
-  type: FETCH_DATA_FAILURE,
+  type: FETCH_MICRO_DATA_FAILURE,
 })
 
 export type FetchActions =

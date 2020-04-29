@@ -1,4 +1,4 @@
-import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS } from '../actions/fetchData';
+import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_MICRO_DATA_REQUEST, FETCH_MICRO_DATA_SUCCESS } from '../actions/fetchData';
 import { RootAction } from '../redux/store';
 
 export interface ICoronaDataItem {
@@ -20,16 +20,20 @@ const initialState: IState = {
 
 export const coronaReducer = (state: IState = initialState, action: RootAction) => {
   switch(action.type) {
+    case FETCH_MICRO_DATA_REQUEST:
     case FETCH_DATA_REQUEST:
       return {
         ...state,
         loading: true,
       };
 
+    case FETCH_MICRO_DATA_SUCCESS:
     case FETCH_DATA_SUCCESS:
+      const data = action.payload;
+
       return {
         ...state,
-        data: action.payload,
+        data: Array.isArray(data) ? data : [data],
         loading: false
       };
 

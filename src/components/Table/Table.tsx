@@ -13,6 +13,7 @@ const Table = () => {
 
   useEffect(() => {
     dispatch({ type: FETCH_DATA_REQUEST });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -34,7 +35,6 @@ const Table = () => {
             <td>{user.cases}</td>
           </tr>
         ))}
-        Ничего здесь пока
       </tbody>
     </RTable>
   )
