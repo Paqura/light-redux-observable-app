@@ -1,6 +1,7 @@
 import { combineEpics } from "redux-observable";
-import { fetchEpic } from "./fetchEpic";
+import { fetchCountriesEpic, fetchCountryEpic } from "./fetchEpic";
 
 export default combineEpics(
-  fetchEpic,
+  fetchCountryEpic,
+  fetchCountriesEpic,
 );

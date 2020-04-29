@@ -17,3 +17,6 @@ export default function configureStore() {
 
   return store;
 }
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type RootAction = any;

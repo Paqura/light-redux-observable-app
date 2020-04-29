@@ -1,18 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import configureStore from './redux/store';
+import { Table } from './components/Table';
 
 const store = configureStore();
 
 const App = () => {
-  const onClick = () => {
-    store.dispatch({ type: 'FETCH_DATA_REQUEST' })
-  }
   return (
     <Provider store={store}>
-      <button onClick={onClick}>
-        Click
-      </button>
+      <Table />
     </Provider>
   );
 }
