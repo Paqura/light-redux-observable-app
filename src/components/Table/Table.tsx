@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Table as RTable } from 'react-bootstrap';
 import { FETCH_DATA_REQUEST } from '../../actions/fetchData';
-
 import { RootState } from '../../redux/store';
-import { IState } from '../../reducers/rootReducer';
+import { selectCoronaData } from '../../selectors/coronaSelectors';
+import { ICoronaDataItem } from '../../reducers/coronaReducer';
+
 
 const Table = () => {
   const dispatch = useDispatch();
-  const data = useSelector<RootState>(state => state.covid.data) as IState['data'];
+  const data = useSelector<RootState>(selectCoronaData) as ICoronaDataItem[];
 
   useEffect(() => {
     dispatch({ type: FETCH_DATA_REQUEST });
