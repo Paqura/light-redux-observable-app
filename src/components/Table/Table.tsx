@@ -6,7 +6,6 @@ import { RootState } from '../../redux/store';
 import { selectCoronaData } from '../../selectors/coronaSelectors';
 import { ICoronaDataItem } from '../../reducers/coronaReducer';
 
-
 const Table = () => {
   const dispatch = useDispatch();
   const data = useSelector<RootState>(selectCoronaData) as ICoronaDataItem[];
@@ -25,14 +24,20 @@ const Table = () => {
           <td onClick={() => {}}>
             Cases
           </td>
+          <td>Flag</td>
         </tr>
       </thead>
       <tbody>
-        {data.map((user, idx) => (
-          <tr key={user.country}>
+        {data.map((item, idx) => (
+          <tr key={item.country}>
             <td>{idx}</td>
-            <td>{user.country}</td>
-            <td>{user.cases}</td>
+            <td>{item.country}</td>
+            <td>{item.cases}</td>
+            <td>
+              <span>
+                <img src={item.countryInfo.flag} alt={`Flag of ${item.country}`} width="32px" />
+              </span>
+            </td>
           </tr>
         ))}
       </tbody>

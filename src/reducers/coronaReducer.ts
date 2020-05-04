@@ -2,8 +2,11 @@ import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_MICRO_DATA_REQUEST, FETCH
 import { RootAction } from '../redux/store';
 
 export interface ICoronaDataItem {
-  country: string;
   cases: number;
+  country: string;
+  countryInfo: {
+    flag: string;
+  };
 }
 
 export interface IState {
