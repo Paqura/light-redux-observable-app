@@ -12,6 +12,7 @@ const Table = () => {
 
   useEffect(() => {
     dispatch({ type: FETCH_DATA_REQUEST });
+  // dispatch is guarantee returns the same func everytime
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

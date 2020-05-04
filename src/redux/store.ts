@@ -4,7 +4,7 @@ import logger from 'redux-logger';
 
 import rootReducer from '../reducers/rootReducer';
 import rootEpic from '../epics/rootEpics';
-import { FetchActions } from '../actions/fetchData';
+import { fetchAction } from '../actions/fetchData';
 
 const epicMiddleware = createEpicMiddleware();
 
@@ -19,5 +19,9 @@ export default function configureStore() {
   return store;
 }
 
+type InferValueTypes<T> = T extends { [key: string]: infer U }
+  ? U
+  : never;
+
 export type RootState = ReturnType<typeof rootReducer>;
-export type RootAction = ReturnType<FetchActions>;
+export type RootAction = ReturnType<InferValueTypes<typeof fetchAction>>;

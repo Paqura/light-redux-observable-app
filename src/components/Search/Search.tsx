@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useRef } from 'react';
+import React, { useRef, FormEvent } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { fetchMicroDataRequest } from '../../actions/fetchData';
@@ -7,9 +7,9 @@ const Search = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
 
-  const onSubmit = async (evt: SyntheticEvent<HTMLFormElement>) => {
+  const onSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    const value = inputRef.current!.value;
+    const value = inputRef.current?.value;
 
     if (!value) {
       return;
